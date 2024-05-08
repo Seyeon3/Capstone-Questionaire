@@ -1,1 +1,1 @@
-# Capstone-Questionaire tangina nyo
+# Capstone-Questionaire
