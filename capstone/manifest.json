@@ -1,0 +1,16 @@
+{
+  "name": "Capstone Reviewer",
+  "short_name": "Thesis",
+  "description": "Capstone Reviewer by Sean",
+  "start_url": "https://seyeon.github.io/capstone/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "images/icon-logo.png",
+      "sizes": "192x192",
+      "type": "images/png"
+    }
+  ]
+}
