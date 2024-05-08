@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/icon-logo.png" type="image/png" />
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Capstone Reviewer</title>
+  </head>
+  <body class="flex-col">
+    <nav class="flex-row">
+      <img class="icon" src="../images/icon-quiz.png" alt="" />
+      <span>Chapter 1</span>
+      <a href="../index.html"
+        ><img class="icon" src="../images/icon-home.png" alt=""
+      /></a>
+    </nav>
+    <main class="flex-col height-max">
+      <section class="section cover">
+        <header>
+          <p>Chapter 3: METHODOLOGY AND RESEARCH DESIGN</p>
+          <p id="p-total-question"></p>
+        </header>
+        <main>
+          <h1>CONTENTS</h1>
+          <p>Research Method and Design</p>
+          <p>Conceptual Framework</p>
+          <p>Context Diagram</p>
+          <p>Data Flow Diagram</p>
+          <p>Activity Diagram</p>
+          <p>Entity Relationship Diagram</p>
+        </main>
+        <box>
+          <img id="btn-play" src="../images/icon-play.png" alt="" />
+        </box>
+      </section>
+
+      <section class="section">
+        <box class="nav-question">
+          <p id="progress">
+            <!-- progress here -->
+          </p>
+          <box id="status-answer"></box>
+          <div id="btn-skip" class="button">SKIP</div>
+        </box>
+
+        <p id="question" class="p-question">
+          <!-- question here -->
+        </p>
+
+        <p id="explanation" class="p-explanation">
+          <!-- explanation -->
+        </p>
+
+        <div class="flex-col">
+          <!-- image here -->
+          <img id="img" src="" alt="" />
+        </div>
+
+        <ul id="options" class="options">
+          <!-- Options will be populated here -->
+        </ul>
+
+        <input
+          type="text"
+          id="input-answer"
+          placeholder="your answer here..."
+          autocomplete="off"
+        />
+
+        <box class="nav-question">
+          <div id="btn-answer" class="button">Answer</div>
+          <div id="btn-next" class="button">Next</div>
+        </box>
+      </section>
+
+      <section class="section result">
+        <p class="title">SCORE</p>
+        <p id="score" class="score"></p>
+        <box class="box-btn-replay">
+          <img id="btn-replay" src="../images/icon-replay.png" alt="" />
+        </box>
+      </section>
+    </main>
+  </body>
+  <script>
+    const questions = [
+      {
+        question:
+          "Review of Related Study: What inefficiencies did The Global Reciprocal Colleges (GRC) face in their inventory management system, as discussed by Balmores, J. et al(2021)?\n\nOverstocking of inventory",
+        img: "",
+        options: [
+          "Overstocking of inventory",
+          "Manual processes prone to errors and delays",
+          "Lack of inventory control",
+          "Inadequate training of staff",
+        ],
+        input: "false",
+        explanation:
+          "The inefficiencies faced by The Global Reciprocal Colleges (GRC) in their inventory management system, as discussed by Balmores, J. et al(2021), were due to manual processes prone to errors and delays.",
+        correctAnswer: "Manual processes prone to errors and delays",
+      },
+    ];
+  </script>
+  <script src="../scripts/script.js"></script>
+</html>

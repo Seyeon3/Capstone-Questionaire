@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/icon-logo.png" type="image/png" />
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Capstone Reviewer</title>
+  </head>
+  <body class="flex-col">
+    <nav class="flex-row">
+      <img class="icon" src="../images/icon-quiz.png" alt="" />
+      <span>Chapter 2</span>
+      <a href="../index.html"
+        ><img class="icon" src="../images/icon-home.png" alt=""
+      /></a>
+    </nav>
+    <main class="flex-col height-max">
+      <section class="section cover">
+        <header>
+          <p>Chapter 2: REVIEW OF RELATED LITERATURE AND STUDIES</p>
+          <p id="p-total-question"></p>
+        </header>
+        <main>
+          <h1>CONTENTS</h1>
+          <p>Review of Relate Literature</p>
+          <p>Review of Relate Study</p>
+          <p>Synthesis</p>
+        </main>
+        <box>
+          <img id="btn-play" src="../images/icon-play.png" alt="" />
+        </box>
+      </section>
+
+      <section class="section">
+        <box class="nav-question">
+          <p id="progress">
+            <!-- progress here -->
+          </p>
+          <box id="status-answer"></box>
+          <div id="btn-skip" class="button">SKIP</div>
+        </box>
+
+        <p id="question" class="p-question">
+          <!-- question here -->
+        </p>
+
+        <p id="explanation" class="p-explanation">
+          <!-- explanation -->
+        </p>
+
+        <div class="flex-col">
+          <!-- image here -->
+          <img id="img" src="" alt="" />
+        </div>
+
+        <ul id="options" class="options">
+          <!-- Options will be populated here -->
+        </ul>
+
+        <input
+          type="text"
+          id="input-answer"
+          placeholder="your answer here..."
+          autocomplete="off"
+        />
+
+        <box class="nav-question">
+          <div id="btn-answer" class="button">Answer</div>
+          <div id="btn-next" class="button">Next</div>
+        </box>
+      </section>
+
+      <section class="section result">
+        <p class="title">SCORE</p>
+        <p id="score" class="score"></p>
+        <box class="box-btn-replay">
+          <img id="btn-replay" src="../images/icon-replay.png" alt="" />
+        </box>
+      </section>
+    </main>
+  </body>
+  <script>
+    const questions = [
+      {
+        question:
+          "Review of Related Literature\n\nAccording to Timotheou et al. (2023), what broader impact does the integration of ICTs have beyond just student performance?",
+        img: "",
+        options: [
+          "Impact on teaching methodologies",
+          "Impact on school administration and stakeholders",
+          "Impact on student attendance rates",
+          "Impact on extracurricular activities",
+        ],
+        input: "false",
+        explanation:
+          "According to Timotheou et al. (2023), the integration of ICTs has a broader impact beyond just student performance, extending to various school-related aspects and stakeholders. This encompasses school administration, which is crucial for the effective implementation of digital technologies within educational institutions.",
+        correctAnswer: "Impact on school administration and stakeholders",
+      },
+      {
+        question:
+          "Review of Related Literature\n\nWhat is the focus of the study by Sarucam, J. V.et al (2023) regarding Quick Response (QR) Code technology?",
+        img: "",
+        options: [
+          "Integration of QR codes in academic research",
+          "Development of a web application for small-scale businesses with QR code integration",
+          "Assessment of QR code awareness among online sellers",
+          "Impact of QR code usage on educational institutions",
+        ],
+        input: "false",
+        explanation:
+          "The focus of the study by Sarucam, J. V.et al (2023) is on the development of a web application for small-scale businesses, which includes the integration of Quick Response (QR) Code technology. The technology provides customers with a reference code to access store and product availability, facilitating convenient buying and selling processes.",
+        correctAnswer:
+          "Development of a web application for small-scale businesses with QR code integration",
+      },
+      {
+        question:
+          "Review of Related Literature\n\nWhat is the objective of the borrowing and returning system discussed by Espano, N. et al (2020) for Kalayaan National High School (KNHS)?",
+        img: "",
+        options: [
+          "To enhance student attendance rates",
+          "To improve the process of borrowing and returning books",
+          "To provide online educational resources",
+          "To increase the number of extracurricular activities",
+        ],
+        input: "false",
+        explanation:
+          "The objective of the borrowing and returning system discussed by Espano, N. et al (2020) for Kalayaan National High School (KNHS) is to improve the process of borrowing and returning books. The proposed system aims to make borrowing and returning books easier and faster, replacing the manual process currently in use.",
+        correctAnswer:
+          "To improve the process of borrowing and returning books",
+      },
+      {
+        question:
+          "Review of Related Literature\n\nWhat is the primary focus of the study conducted by Duran, M. (2022) regarding technology integration within schools?",
+        img: "",
+        options: [
+          "Assessment of student performance",
+          "Role of educational administrators in technology integration",
+          "Impact of technology on extracurricular activities",
+          "Evaluation of teaching methodologies",
+        ],
+        input: "false",
+        explanation:
+          "The primary focus of the study by Duran, M. (2022) is on highlighting the pivotal role of educational administrators in shaping technology integration within schools to enhance student learning outcomes. It emphasizes the importance of technology standards for administrators as a guiding framework.",
+        correctAnswer:
+          "Role of educational administrators in technology integration",
+      },
+      {
+        question:
+          "Review of Related Literature\n\nWhat is the significance of the study conducted by Dublar, C. (2023) regarding technology integration in the Philippine education system?",
+        img: "",
+        options: [
+          "Assessment of technology's impact on student learning outcomes",
+          "Evaluation of emerging technology trends",
+          "Identification of challenges in technology implementation",
+          "Analysis of technology's role in school administration",
+        ],
+        input: "false",
+        explanation:
+          "The significance of the study by Dublar, C. (2023) lies in assessing the impact of emerging technology integration on the knowledge and skills acquisition of K-12 students in the Philippines. It aims to identify and synthesize existing research on technology integration within the Philippine education system.",
+        correctAnswer:
+          "Assessment of technology's impact on student learning outcomes",
+      },
+      {
+        question:
+          "Review of Related Literature\n\nAccording to Tanaman, M. T. et al (2023), what are the key objectives of the web-based inventory management system developed for a small business enterprise in Pagadian City, Philippines?",
+        img: "",
+        options: [
+          "To streamline manual inventory management processes",
+          "To assess the impact of inventory management on business performance",
+          "To analyze customer buying behaviors",
+          "To explore marketing strategies",
+        ],
+        input: "false",
+        explanation:
+          "According to Tanaman, M. T. et al (2023), the key objectives of the web-based inventory management system developed for a small business enterprise in Pagadian City, Philippines, are to support the business owner in managing inventories efficiently and conveniently, addressing challenges associated with manual inventory management processes.",
+        correctAnswer: "To streamline manual inventory management processes",
+      },
+      {
+        question:
+          "Review of Related Literature\n\nWhat is the primary focus of the study conducted by Saxena, U. R. et al (2023) regarding access control in cloud computing systems?",
+        img: "",
+        options: [
+          "Implementation of trust-oriented role-based access control",
+          "Assessment of cloud service providers",
+          "Evaluation of cloud infrastructure",
+          "Analysis of cloud security protocols",
+        ],
+        input: "false",
+        explanation:
+          "The primary focus of the study by Saxena, U. R. et al (2023) is on discussing the implementation of a trust-oriented role-based access control (TRBAC) paradigm to maintain data integrity in cloud computing systems. It emphasizes the need for reliable access control mechanisms, especially in multi-tenant environments like the cloud.",
+        correctAnswer:
+          "Implementation of trust-oriented role-based access control",
+      },
+      {
+        question:
+          "Review of Related Literature\n\nWhat is the key objective of the study conducted by Mohamed, A. K. Y. S. et al (2022) regarding authorization and access control?",
+        img: "",
+        options: [
+          "To analyze the impact of access control on cloud computing systems",
+          "To propose a classification schema for access control models",
+          "To assess the effectiveness of access control mechanisms",
+          "To evaluate the security of cloud service providers",
+        ],
+        input: "false",
+        explanation:
+          "The key objective of the study by Mohamed, A. K. Y. S. et al (2022) is to discuss authorization and access control, aiming to clarify definitions, strategies, and models in this domain. It provides a comprehensive overview of various access control models and proposes a classification schema to categorize them.",
+        correctAnswer:
+          "To propose a classification schema for access control models",
+      },
+      {
+        question:
+          "Review of Related Study: What inefficiencies did The Global Reciprocal Colleges (GRC) face in their inventory management system, as discussed by Balmores, J. et al(2021)?\n\nOverstocking of inventory",
+        img: "",
+        options: [
+          "Overstocking of inventory",
+          "Manual processes prone to errors and delays",
+          "Lack of inventory control",
+          "Inadequate training of staff",
+        ],
+        input: "false",
+        explanation:
+          "The inefficiencies faced by The Global Reciprocal Colleges (GRC) in their inventory management system, as discussed by Balmores, J. et al(2021), were due to manual processes prone to errors and delays.",
+        correctAnswer: "Manual processes prone to errors and delays",
+      },
+      {
+        question:
+          "Review of Related Study: What model approach did Prananosa, A. (2019) utilize to address the inefficiency in the school management information system database?\n\nBoehm spiral model",
+        img: "",
+        options: [
+          "Waterfall model",
+          "Agile methodology",
+          "Boehm spiral model",
+          "RAD model",
+        ],
+        input: "false",
+        explanation:
+          "Prananosa, A. (2019) utilized the Boehm spiral model to address the inefficiency in the school management information system database.",
+        correctAnswer: "Boehm spiral model",
+      },
+      {
+        question:
+          "Review of Related Study: What challenge did Ramos, L. et al (2019) identify in managing and monitoring the assets and procurement processes of the school?\n\nManual handling of assets by a single person",
+        img: "",
+        options: [
+          "High equipment maintenance costs",
+          "Lack of student engagement",
+          "Manual handling of assets by a single person",
+          "Inadequate teaching resources",
+        ],
+        input: "false",
+        explanation:
+          "Ramos, L. et al (2019) identified the challenge of manual handling of assets by a single person in managing and monitoring the assets and procurement processes of the school.",
+        correctAnswer: "Manual handling of assets by a single person",
+      },
+      {
+        question:
+          "Review of Related Study: What problem did Cansino, I, et al(2019) address in their study regarding the current inventory and supply management system?\n\nManual processes prone to errors and delays",
+        img: "",
+        options: [
+          "Difficulty in managing student enrollment",
+          "Lack of extracurricular activities",
+          "Manual processes prone to errors and delays",
+          "Inadequate teaching resources",
+        ],
+        input: "false",
+        explanation:
+          "Cansino, I, et al(2019) addressed the problem of manual processes prone to errors and delays in their study regarding the current inventory and supply management system.",
+        correctAnswer: "Manual processes prone to errors and delays",
+      },
+      {
+        question:
+          "Review of Related Study: What technological solution did Jones and Patel (2019) propose for managing equipment borrowing and returning processes?\n\nRFID technology",
+        img: "",
+        options: [
+          "Barcode technology",
+          "Cloud computing",
+          "RFID technology",
+          "Blockchain technology",
+        ],
+        input: "false",
+        explanation:
+          "Jones and Patel (2019) proposed RFID technology for managing equipment borrowing and returning processes.",
+        correctAnswer: "RFID technology",
+      },
+      {
+        question:
+          "Review of Related Study: What problem did Banog, BJ. et al.(2022) identify in a business establishment regarding inventory management, reservation, and transaction recording?\n\nManual processes prone to errors and delays",
+        img: "",
+        options: [
+          "Difficulty in managing customer complaints",
+          "Inefficient use of financial resources",
+          "Manual processes prone to errors and delays",
+          "Lack of marketing strategies",
+        ],
+        input: "false",
+        explanation:
+          "Banog, BJ. et al.(2022) identified manual processes prone to errors and delays in a business establishment regarding inventory management, reservation, and transaction recording.",
+        correctAnswer: "Manual processes prone to errors and delays",
+      },
+      {
+        question:
+          "Review of Related Study: What challenge did Alipio, A., et al. (2023) discuss regarding the maintenance management systems in school buildings?\n\nInefficient maintenance management systems",
+        img: "",
+        options: [
+          "High equipment maintenance costs",
+          "Inefficient maintenance management systems",
+          "Lack of student engagement",
+          "Inadequate teaching resources",
+        ],
+        input: "false",
+        explanation:
+          "Alipio, A., et al. (2023) discussed the challenge of inefficient maintenance management systems in school buildings.",
+        correctAnswer: "Inefficient maintenance management systems",
+      },
+      {
+        question:
+          "Synthesis: What has the use of technology in school administration transformed according to the synthesis?",
+        img: "",
+        options: [
+          "Conventional procedures",
+          "Data-driven decision-making",
+          "Transparent decision-making",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "The use of technology in school administration has transformed conventional procedures and promoted data-driven, transparent decision-making.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: How do web-based inventory management systems benefit schools?",
+        img: "",
+        options: [
+          "Improving resource allocation",
+          "Enhancing monitoring efficiency",
+          "Increasing accuracy",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "Web-based inventory management systems benefit schools by improving resource allocation, enhancing monitoring efficiency, and increasing accuracy.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: What does the implementation of role-based access control (RBAC) guarantee?",
+        img: "",
+        options: [
+          "Data security",
+          "User roles",
+          "Confidential data protection",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "The implementation of role-based access control (RBAC) guarantees data security, user roles, and confidential data protection.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: How do borrowing and returning systems streamline transaction processing?",
+        img: "",
+        options: [
+          "Lowering administrative overhead",
+          "Improving user happiness",
+          "Increasing efficiency",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "Borrowing and returning systems streamline transaction processing by lowering administrative overhead, improving user happiness, and increasing efficiency.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: What does QR code technology enable in asset tracking?",
+        img: "",
+        options: [
+          "Effective asset tracking",
+          "Decreasing manual errors",
+          "Improving inventory visibility",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "QR code technology enables effective asset tracking, decreases manual errors, and improves inventory visibility.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: What are the benefits of proactive maintenance management procedures?",
+        img: "",
+        options: [
+          "Improving facility conditions",
+          "Decreasing downtime",
+          "Extending asset lifespan",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "The benefits of proactive maintenance management procedures include improving facility conditions, decreasing downtime, and extending asset lifespan.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: How do computerized systems improve operational effectiveness?",
+        img: "",
+        options: [
+          "Automating repetitive tasks",
+          "Streamlining processes",
+          "Improving information accessibility",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "Computerized systems improve operational effectiveness by automating repetitive tasks, streamlining processes, and improving information accessibility.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: What do effective property management systems ensure according to the synthesis?",
+        img: "",
+        options: [
+          "Regulatory compliance",
+          "Decrease expenses",
+          "Maximize resource use",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "Effective property management systems ensure regulatory compliance, decrease expenses, and maximize resource use.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: What is the benefit of real-time inventory access and communication?",
+        img: "",
+        options: [
+          "Increasing accuracy",
+          "Increasing responsiveness",
+          "Decreasing stockouts",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "The benefit of real-time inventory access and communication is increasing accuracy, increasing responsiveness, and decreasing stockouts.",
+        correctAnswer: "All of the above",
+      },
+      {
+        question:
+          "Synthesis: According to the synthesis, what do computerized systems improve?",
+        img: "",
+        options: [
+          "Stakeholder collaboration",
+          "Accuracy",
+          "Efficiency",
+          "All of the above",
+        ],
+        input: "false",
+        explanation:
+          "According to the synthesis, computerized systems improve stakeholder collaboration, accuracy, and efficiency.",
+        correctAnswer: "All of the above",
+      },
+    ];
+  </script>
+  <script src="../scripts/script.js"></script>
+</html>
